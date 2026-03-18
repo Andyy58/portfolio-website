@@ -2,7 +2,8 @@ export interface Experience {
   id: string;
   role: string;
   company: string;
-  timeframe: string; // Change to date/time later
+  startDate: string;
+  endDate: string;
   bullets?: string[] | null;
 }
 
@@ -10,19 +11,22 @@ export const experiences: Experience[] = [
   {
     id: "exp-tencent",
     role: "Backend Engineer",
-    company: "Tencent",
-    timeframe: "2022-06-01",
+    company: "Tencent - WeChat Search",
+    startDate: "April 2025",
+    endDate: "December 2025",
   },
   {
     id: "exp-guowang",
     role: "Software Engineer",
-    company: "State Grid Big Data Center",
-    timeframe: "2022-06-01",
+    company: "SGCC China",
+    startDate: "Janurary 2025",
+    endDate: "April 2025",
   },
   {
     id: "exp-chaseauto",
     role: "Full-Stack Engineer",
     company: "Chase Auto",
-    timeframe: "2022-06-01",
+    startDate: "May 2024",
+    endDate: "September 2024",
   },
 ];

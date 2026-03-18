@@ -18,6 +18,7 @@ export interface Artifact {
   sourceTriggerId?: string;
   targetBlueprintId?: string;
   shape?: string;
+  label?: string;
 }
 
 export const artifacts: Artifact[] = [
@@ -71,6 +72,7 @@ export const artifacts: Artifact[] = [
     assetPath: "/assets/logos/tencent.svg",
     sourceTriggerId: "exp-tencent",
     targetBlueprintId: "blueprint-slot-tencent",
+    label: "Tencent",
   },
   {
     id: "artifact-guowang-logo",
@@ -78,6 +80,7 @@ export const artifacts: Artifact[] = [
     assetPath: "/assets/logos/guowang.svg",
     sourceTriggerId: "exp-guowang",
     targetBlueprintId: "blueprint-slot-guowang",
+    label: "Guowang",
   },
   {
     id: "artifact-chaseauto-logo",
@@ -85,6 +88,7 @@ export const artifacts: Artifact[] = [
     assetPath: "/assets/logos/chaseauto.svg",
     sourceTriggerId: "exp-chaseauto",
     targetBlueprintId: "blueprint-slot-chaseauto",
+    label: "Chase Auto",
   },
 
   // -- Project skills --
@@ -95,6 +99,7 @@ export const artifacts: Artifact[] = [
     assetPath: "/assets/skills/react.svg",
     sourceTriggerId: "proj-portfolio",
     targetBlueprintId: "blueprint-slot-react",
+    label: "React",
   },
   {
     id: "artifact-portfolio-typescript",
@@ -102,6 +107,7 @@ export const artifacts: Artifact[] = [
     sourceTriggerId: "proj-portfolio",
     targetBlueprintId: "blueprint-slot-typescript",
     assetPath: "/assets/skills/typescript.svg",
+    label: "TypeScript",
   },
   {
     id: "artifact-portfolio-gsap",
@@ -109,6 +115,7 @@ export const artifacts: Artifact[] = [
     sourceTriggerId: "proj-portfolio",
     targetBlueprintId: "blueprint-slot-gsap",
     assetPath: "/assets/skills/gsap.svg",
+    label: "GSAP",
   },
   {
     id: "artifact-portfolio-tailwindcss",
@@ -116,6 +123,7 @@ export const artifacts: Artifact[] = [
     sourceTriggerId: "proj-portfolio",
     targetBlueprintId: "blueprint-slot-tailwindcss",
     assetPath: "/assets/skills/tailwindcss.svg",
+    label: "TailwindCSS",
   },
 
   // Fridge scanner
@@ -125,6 +133,7 @@ export const artifacts: Artifact[] = [
     sourceTriggerId: "proj-fridgescanner",
     targetBlueprintId: "blueprint-slot-yolo",
     assetPath: "/assets/skills/yolo.svg",
+    label: "YOLO",
   },
 
   // SiGnL
@@ -134,6 +143,7 @@ export const artifacts: Artifact[] = [
     sourceTriggerId: "prof-signl",
     targetBlueprintId: "blueprint-slot-opencv",
     assetPath: "/assets/skills/opencv.svg",
+    label: "OpenCV",
   },
   {
     id: "artifact-signl-python",
@@ -141,5 +151,6 @@ export const artifacts: Artifact[] = [
     sourceTriggerId: "prof-signl",
     targetBlueprintId: "blueprint-slot-python",
     assetPath: "/assets/skills/python.svg",
+    label: "Python",
   },
 ];

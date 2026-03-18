@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 @theme {
   /* Colors */
   --color-bg-primary: var(--bg-primary);
@@ -17,6 +18,9 @@
   --color-accent-red: #FF2A2A;
   --color-accent-yellow: #FFC700;
 
+  /* Typography */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
   /*Z-Index Hierachy */
   --z-background: -2;
   --z-canvas: -1;
@@ -33,7 +37,7 @@
     --dot-color: rgba(107, 114, 128, 0.25)
   }
 
-  @media (prefers-color-scheme: light) {
+  @media (prefers-color-scheme: dark) {
     :root {
       --bg-primary: #0A0A0A;
       --bg-secondary: #171717;
@@ -46,6 +50,7 @@
   body {
     background-color: var(--color-bg-primary);
     color: var(--color-text-primary);
+    font-family: var(--font-sans);
     overflow-x: hidden;
   }
 }
