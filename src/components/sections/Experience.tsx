@@ -1,8 +1,32 @@
 import { experiences } from "../../data/expData";
 
-const LogoPlaceholder = () => (
-  <div className="w-10 h-10 rounded-lg bg-text-muted/20 shrink-0" />
-);
+const Logo = ({
+  logoUrl,
+  companyName,
+  logo_props,
+}: {
+  logoUrl: string;
+  companyName: string;
+  logo_props?: string;
+}) => {
+  if (!logoUrl) {
+    return (
+      <div className="w-16 h-16 rounded-2xl bg-bg-secondary/60 backdrop-blur-xl border border-text-muted/10 shadow-[0_8px_16px_-6px_rgba(0,0,0,0.1)] flex items-center justify-center text-text-primary font-bold text-xl md:text-2xl shrink-0">
+        {companyName.charAt(0)}
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-21 h-17 rounded-2xl backdrop-blur-xs border border-text-muted/10 shadow-[0_8px_16px_-6px_rgba(0,0,0,0.1)] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+      <img
+        className={`w-full h-full object-contain ${logo_props}`}
+        src={logoUrl}
+        alt={`${companyName} Logo`}
+      />
+    </div>
+  );
+};
 
 export default function Experience() {
   const experienceCards = [...experiences].reverse().map((item, index) => {
@@ -16,7 +40,7 @@ export default function Experience() {
       <div
         key={item.id}
         id={item.id}
-        className="relative flex flex-col md:flex-row items-center w-full mb-45 last:mb-0"
+        className="relative flex flex-col md:flex-row items-center w-full mb-30 last:mb-0"
       >
         {/* Timeline dot */}
         <div className="absolute left-2 md:left-1/2 w-3 h-3 rounded-full bg-accent-blue shadow-[0_0_12px_var(--color-accent-blue)] ring-4 ring-bg-primary -translate-x-1/2 z-10" />
@@ -25,22 +49,28 @@ export default function Experience() {
         <div
           className={`w-full pl-12 md:w-1/2 md:pl-0 flex items-center gap-3 ${
             isEven
-              ? "md:pr-16 md:justify-end"         // left half, group near timeline
+              ? "md:pr-16 md:justify-end" // left half, group near timeline
               : "md:pl-16 md:ml-auto md:justify-start" // right half, group near timeline
           }`}
         >
           {/* Logo — outer edge, hidden on mobile */}
-          <div className={`hidden md:block shrink-0 ${isEven ? "order-first" : "order-last"}`}>
-            <LogoPlaceholder />
+          <div
+            className={`block shrink-0 order-last ${isEven ? "md:order-first" : ""}`}
+          >
+            <Logo
+              logoUrl={item.logo}
+              companyName={item.company}
+              logo_props={item?.logo_props}
+            />
           </div>
 
           {/* Text — timeline side of the group */}
           <div
-            className={`flex flex-col ${
-              isEven ? "items-end text-right" : "items-start text-left"
+            className={`flex flex-col text-left ${
+              isEven ? "items-end md:text-right" : "items-start"
             }`}
           >
-            <h3 className="text-lg md:text-xl font-bold text-text-primary tracking-tight">
+            <h3 className="text-xl font-bold text-text-primary tracking-tight">
               {item.role}
             </h3>
             <div className="flex flex-col gap-1 text-sm">
@@ -93,14 +123,13 @@ export default function Experience() {
 
       {/* Content Container */}
       <div className="w-full max-w-4xl mx-auto px-6 flex flex-col">
+        {/* Timeline Container */}
+        <div className="relative w-full ml-25 md:mx-auto">
+          {timelineArrow}
+          {experienceCards}
+        </div>
 
-      {/* Timeline Container */}
-      <div className="relative w-full">
-        {timelineArrow}
-        {experienceCards}
-      </div>
-
-      <div className="border-l border-text-muted/20 ml-3 md:ml-4"></div>
+        <div className="border-l border-text-muted/20 ml-3 md:ml-4"></div>
       </div>
     </section>
   );

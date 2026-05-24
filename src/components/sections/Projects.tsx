@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { projects, type Project } from "../../data/projectsData";
+import { techIcons } from "../../data/techIcons";
 
 // --- 1. THE FANNED DECK MATH ---
 const getCardProps = (
@@ -102,20 +103,70 @@ const ProjectCard = ({
             <h3 className="text-xl font-bold tracking-tight text-text-primary">
               {project.title}
             </h3>
-            <p className="text-sm text-text-muted mt-3 leading-relaxed">
+            <p className="text-sm text-text-muted mt-3 leading-[1.9]">
               {project.description}
             </p>
           </div>
 
           <div className="flex flex-wrap gap-2 mt-auto">
-            {project.techStack.map((tech) => (
-              <span
-                key={tech}
-                className="px-2 py-1 border border-text-muted/20 rounded-md text-xs font-mono text-text-muted"
+            {project.techStack.map((tech) => {
+              const Icon = techIcons[tech];
+
+              return (
+                <span
+                  key={tech}
+                  className="px-2 py-1 border border-text-muted/20 rounded-md text-xs font-mono text-text-muted flex gap-1.5 items-center"
+                >
+                  {tech}
+                  {Icon && <Icon className="size-4" />}
+                </span>
+              );
+            })}
+          </div>
+
+          <div className="items-center flex w-full justify-around gap-6 pt-3 mt-5 border-t border-dashed border-text-muted/10 font-mono text-sm">
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                className="cursor-pointer flex items-center gap-1.5 text-text-muted hover:text-text-primary transition-colors duration-300 group relative"
               >
-                {tech}
-              </span>
-            ))}
+                {(() => {
+                  const GitHubLight = techIcons["GitHubLight"];
+                  const GitHubDark = techIcons["GitHubDark"];
+                  return (
+                    <span className="flex items-center">
+                      {GitHubLight && (
+                        <GitHubLight className="size-4 dark:hidden" />
+                      )}
+                      {GitHubDark && (
+                        <GitHubDark className="size-4 hidden dark:block" />
+                      )}
+                    </span>
+                  );
+                })()}
+                <span>GitHub</span>
+                <span className="inline-block transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 opacity-50 group-hover:opacity-100">
+                  ↗
+                </span>
+                {/* Animated underline */}
+                <div className="absolute -bottom-1 left-0 w-0 h-px bg-text-primary transition-all duration-300 group-hover:w-full"></div>
+              </a>
+            )}
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                className="cursor-pointer flex items-center gap-1.5 text-text-muted hover:text-text-primary transition-colors duration-300 group relative"
+              >
+                <span>View Live</span>
+                <span className="inline-block transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 opacity-50 group-hover:opacity-100">
+                  ↗
+                </span>
+                {/* Animated underline */}
+                <div className="absolute -bottom-1 left-0 w-0 h-px bg-text-primary transition-all duration-300 group-hover:w-full"></div>
+              </a>
+            )}
           </div>
         </div>
       )}
