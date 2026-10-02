@@ -6,8 +6,6 @@ function App() {
   return (
     <NavbarProvider>
       <Router>
-        <div className="fixed inset-0 z-[-2] w-full h-full bg-bg-primary bg-dot-grid" />
-
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>

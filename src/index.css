@@ -64,3 +64,42 @@
     background-position: center;
   }
 }
+
+.circle-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: difference;
+}
+
+.circle-cursor span {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 160ms ease, height 160ms ease, background-color 160ms ease;
+}
+
+.circle-cursor.is-interactive span {
+  width: 34px;
+  height: 34px;
+  background-color: rgb(255 255 255 / 12%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .circle-cursor-active,
+  .circle-cursor-active * {
+    cursor: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .circle-cursor span {
+    transition: none;
+  }
+}
