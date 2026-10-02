@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useNavbar } from "../layout/NavbarContext";
+import ElasticText from "../experiments/ElasticText";
 
 export default function Hero() {
   const headerRef = useRef<HTMLDivElement>(null);
@@ -27,10 +28,10 @@ export default function Hero() {
     >
       <div className="header text-center" ref={headerRef}>
         <h1 className="text-6xl md:text-7xl lg:text-8xl tracking-tight font-bold text-text-primary mb-4">
-          Andy Yang
+          <ElasticText>Andy Yang</ElasticText>
         </h1>
         <p className="text-sm md:text-md lg:text-lg text-text-muted tracking-wide">
-          Computer Science @ UWaterloo
+          <ElasticText>Computer Science @ UWaterloo</ElasticText>
         </p>
       </div>
     </section>

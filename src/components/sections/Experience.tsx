@@ -1,4 +1,6 @@
 import { experiences } from "../../data/expData";
+import ElasticText from "../experiments/ElasticText";
+import ElasticItem from "../experiments/ElasticItem";
 
 const Logo = ({
   logoUrl,
@@ -54,7 +56,7 @@ export default function Experience() {
           }`}
         >
           {/* Logo — outer edge, hidden on mobile */}
-          <div
+          <ElasticItem
             className={`block shrink-0 order-last ${isEven ? "md:order-first" : ""}`}
           >
             <Logo
@@ -62,7 +64,7 @@ export default function Experience() {
               companyName={item.company}
               logo_props={item?.logo_props}
             />
-          </div>
+          </ElasticItem>
 
           {/* Text — timeline side of the group */}
           <div
@@ -71,14 +73,14 @@ export default function Experience() {
             }`}
           >
             <h3 className="text-xl font-bold text-text-primary tracking-tight">
-              {item.role}
+              <ElasticText>{item.role}</ElasticText>
             </h3>
             <div className="flex flex-col gap-1 text-sm">
               <span className="text-accent-blue tracking-tight font-semibold">
-                {item.company.replaceAll("-", "•")}
+                <ElasticText>{item.company.replaceAll("-", "•")}</ElasticText>
               </span>
               <span className="text-text-muted/70 tracking-tight text-xs font-mono">
-                {item.startDate.toUpperCase()} - {item.endDate.toUpperCase()}
+                <ElasticText>{`${item.startDate.toUpperCase()} - ${item.endDate.toUpperCase()}`}</ElasticText>
               </span>
             </div>
           </div>
@@ -117,7 +119,7 @@ export default function Experience() {
       {/* Section Header */}
       <div className="w-full max-w-5xl mx-auto px-6 mb-16 md:mb-24 flex justify-start items-end z-10">
         <h2 className="text-sm font-mono tracking-widest text-text-muted uppercase">
-          01. / Experience
+          <ElasticText>01. / Experience</ElasticText>
         </h2>
       </div>
 

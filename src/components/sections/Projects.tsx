@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { projects, type Project } from "../../data/projectsData";
 import { techIcons } from "../../data/techIcons";
+import ElasticText from "../experiments/ElasticText";
 
 // --- 1. THE FANNED DECK MATH ---
 const getCardProps = (
@@ -101,7 +102,7 @@ const ProjectCard = ({
         <div className="flex flex-col h-full animate-in fade-in duration-500">
           <div>
             <h3 className="text-xl font-bold tracking-tight text-text-primary">
-              {project.title}
+              <ElasticText>{project.title}</ElasticText>
             </h3>
             <p className="text-sm text-text-muted mt-3 leading-[1.9]">
               {project.description}
@@ -190,7 +191,7 @@ export default function ProjectsDeck() {
       {/* Reverted Section Header with Navigation Controls */}
       <div className="w-full max-w-5xl mx-auto px-6 mb-16 md:mb-24 flex justify-between items-end z-10">
         <h2 className="text-sm font-mono tracking-widest text-text-muted uppercase">
-          02. / Featured Projects
+          <ElasticText>02. / Featured Projects</ElasticText>
         </h2>
 
         <div className="flex gap-x-4">

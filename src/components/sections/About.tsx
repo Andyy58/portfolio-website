@@ -1,4 +1,5 @@
 import React from "react";
+import ElasticText from "../experiments/ElasticText";
 import ResumeIcon from "../../assets/resume.svg?react";
 
 // --- SUB-COMPONENTS ---
@@ -70,7 +71,7 @@ export default function About() {
     >
       <div className="w-full max-w-5xl mx-auto px-6 mb-12 flex justify-center md:justify-start">
         <h2 className="text-sm font-mono tracking-widest text-text-muted uppercase">
-          03. / About me
+          <ElasticText>03. / About me</ElasticText>
         </h2>
       </div>
 
@@ -109,7 +110,7 @@ export default function About() {
         {/* Right Column: Bio & Links */}
         <div className="w-full md:w-2/3 flex flex-col justify-center">
           <h3 className="text-4xl md:text-5xl font-extrabold tracking-tight text-text-primary mb-6 text-center md:text-left">
-            Andy Yang.
+            <ElasticText>Andy Yang.</ElasticText>
           </h3>
 
           <div className="space-y-3.5 text-base md:text-lg text-text-muted leading-relaxed text-center md:text-left">
